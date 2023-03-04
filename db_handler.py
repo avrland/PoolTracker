@@ -2,7 +2,7 @@ import mysql.connector
 from datetime import datetime
 import json
 
-def insert_info(table_name, date, people, people_max):
+def insert_stats(date, people_sport, people_family, people_small, people_ice):
     # Load the database login details from the config file
     with open('db_config.json', 'r') as f:
         config = json.load(f)
@@ -17,8 +17,8 @@ def insert_info(table_name, date, people, people_max):
     date_str = date.strftime('%Y-%m-%d %H:%M:%S')
 
     # SQL query to insert data into the table
-    sql = "INSERT INTO " + table_name + " (date, people, people_max) VALUES (%s, %s, %s)"
-    values = (date_str, people, people_max)
+    sql = "INSERT INTO poolStats (date, sport, family, small, ice) VALUES (%s, %s, %s, %s, %s)"
+    values = (date_str, people_sport, people_family, people_small, people_ice)
 
     # Execute the query
     mycursor.execute(sql, values)
@@ -31,4 +31,4 @@ def insert_info(table_name, date, people, people_max):
 
 if __name__ == "__main__":
     date = datetime(2023, 3, 4, 10, 30, 0)
-    insert_info("sportowa", date, 21, 50)
+    insert_stats(date, 10, 11, 5, 1)
