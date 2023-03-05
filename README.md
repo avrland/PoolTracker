@@ -1,7 +1,17 @@
 # PoolTracker
-Pool occupancy stats scrapper. This script puts the number of people present at the pool with datetime to database. 
+Pool occupancy stats scrapper. This script puts the number of people present at the pool with datetime to database. Data is fetched every full and half hour.
 
-
+1. Clone repo.
+2. Insert your mysql data to db_config_example.json, rename it to db_config.json.
+3. Create table with poolStats.sql.
+4. Build docker image
+```
+docker image build -t pooltracker:0.1 .
+```
+5. Run it with
+```
+docker container run -d pooltracker:0.1
+```
 
 ### Data fetched from api
 ```json
