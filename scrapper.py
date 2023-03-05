@@ -37,7 +37,7 @@ def push_to_db():
 
 schedule.every().hour.at(":00").do(push_to_db)
 schedule.every().hour.at(":30").do(push_to_db)
-
+print("Scheduler started.")
 while True:
     schedule.run_pending()
     time.sleep(1)
