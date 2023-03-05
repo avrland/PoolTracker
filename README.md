@@ -2,7 +2,7 @@
 Pool occupancy stats scrapper. This script puts the number of people present at the pool with datetime to database. Data is fetched every full and half hour. Datetime is fixed UTC+1. 
 
 1. Clone repo.
-2. Insert your mysql data to db_config_example.json, rename it to db_config.json.
+2. Insert your mysql config to db_config_example.json, rename it to db_config.json.
 3. Create table with poolStats.sql.
 4. Build docker image
 ```
