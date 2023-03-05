@@ -73,3 +73,17 @@ There are 5 categories, I insert number of people present to db in this pattern:
 "2023-03-05 08:00:00","87","70","18","0","041b85d4-bb26-11ed-b3f1-960000b5fbdb"
 "2023-03-05 08:30:00","99","88","23","0","0ffd139d-5b4e-4fcd-a8b6-3cfef862ad62"
 ```
+
+## TableViewer
+It's simply poolStat table pushed to web. Allows all ips to see it. Use with caution.
+
+1. Go to TableViewer folder.
+2. Insert mysql creditials to config_example.php and rename it to config.php.
+3. Build docker image
+```
+docker build -t tableviewer .
+```
+4. Run docker container
+```
+docker container run -d -p 80:80 tableviewer
+```
