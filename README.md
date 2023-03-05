@@ -6,11 +6,11 @@ Pool occupancy stats scrapper. This script puts the number of people present at 
 3. Create table with poolStats.sql.
 4. Build docker image
 ```
-docker image build -t pooltracker:0.1 .
+docker image build -t pooltracker .
 ```
 5. Run it with
 ```
-docker container run -d pooltracker:0.1
+docker container run -d pooltracker
 ```
 
 ### Data fetched from api
