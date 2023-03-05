@@ -2,6 +2,9 @@ import requests
 import json
 from db_handler import insert_stats
 from datetime import datetime
+import schedule
+import time
+
 def single_api_request():
     response = requests.get('https://miejskoaktywni.pl/api/activities_table_items')
     json_data = json.loads(response.text)
@@ -26,8 +29,14 @@ def single_api_request():
 def push_to_db():
     current_time = datetime.now()
     single_scrap_content = single_api_request()
+    print(str(single_scrap_content))
     sport, family, small, ice = single_scrap_content['sport'], single_scrap_content['family'], single_scrap_content['small'], single_scrap_content['ice']
     insert_stats(current_time, people_sport=sport, people_family=family, people_small=small, people_ice=ice)
 
-print(single_api_request())
-push_to_db()
+
+schedule.every().hour.at(":00").do(push_to_db())
+schedule.every().hour.at(":30").do(push_to_db())
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
