@@ -25,9 +25,46 @@ docker container run -d pooltracker:0.1
         "createdAt": "2022-04-29T01:27:21+02:00",
         "updateAt": "2022-04-29T01:27:21+02:00",
         "active": true
+    },
+    {
+        "title": "Pływalnia Rodzinna",
+        "content": "Aktualnie na pływalni: 95 osób<br />Maksymalnie: 150 osób",
+        "type": "pływalnia rodzinna",
+        "id": 2,
+        "isActive": true,
+        "createdAt": "2022-05-05T23:25:56+02:00",
+        "updateAt": "2022-05-05T23:25:56+02:00",
+        "active": true
+    },
+    {
+        "title": "Pływalnia Kameralna",
+        "content": "Aktualnie na pływalni: 25 osób<br />Maksymalnie: 30 osób",
+        "type": "pływalnia kameralna",
+        "id": 4,
+        "isActive": true,
+        "createdAt": "2022-07-31T11:01:56+02:00",
+        "updateAt": "2022-07-31T11:01:56+02:00",
+        "active": true
+    },
+    {
+        "title": "Lodowisko",
+        "content": "Aktualnie na ślizgawce: 0 osób<br />Maksymalnie: 300 osób",
+        "type": "lodowisko",
+        "id": 5,
+        "isActive": true,
+        "createdAt": "2022-08-08T09:46:01+02:00",
+        "updateAt": "2022-08-08T09:46:01+02:00",
+        "active": true
     }
 ]
 ```
+There are 5 categories, I insert number of people present to db in this pattern:
+
+- "Pływalnia Sportowa" to sport column
+- "Pływalnia Rodzinna" to family column
+- "Pływalnia Kameralna" to small column
+- "Lodowisko" to ice column
+
 
 ### Data inserted to db. 
 ```csv
