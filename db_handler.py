@@ -1,7 +1,7 @@
 import mysql.connector
 from datetime import datetime
 import json
-
+import uuid
 def insert_stats(date, people_sport, people_family, people_small, people_ice):
     # Load the database login details from the config file
     with open('db_config.json', 'r') as f:
@@ -16,9 +16,11 @@ def insert_stats(date, people_sport, people_family, people_small, people_ice):
     # Convert the date to a string in the format YYYY-MM-DD HH:MM:SS
     date_str = date.strftime('%Y-%m-%d %H:%M:%S')
 
+    guid = str(uuid.uuid4())
+
     # SQL query to insert data into the table
-    sql = "INSERT INTO poolStats (date, sport, family, small, ice) VALUES (%s, %s, %s, %s, %s)"
-    values = (date_str, people_sport, people_family, people_small, people_ice)
+    sql = "INSERT INTO poolStats (guid, date, sport, family, small, ice) VALUES (%s, %s, %s, %s, %s, %s)"
+    values = (guid, date_str, people_sport, people_family, people_small, people_ice)
 
     # Execute the query
     mycursor.execute(sql, values)
