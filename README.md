@@ -2,8 +2,19 @@
 Pool occupancy stats scrapper. This script puts the number of people present at the pool with datetime to database. Data is fetched every 15 minutes. Datetime is fixed UTC+1. 
 
 1. Clone repo.
+```
+https://github.com/avrland/PoolTracker.git
+```
 2. Insert your mysql config to db_config_example.json, rename it to db_config.json.
-3. Create table with poolStats.sql.
+```json
+{
+    "host": "host",
+    "user": "user",
+    "password": "passwd",
+    "database": "dbname"
+}  
+```
+3. Create table with poolStats.sql in mysql db.
 4. Build docker image
 ```
 cd PoolTracker
@@ -75,18 +86,6 @@ There are 5 categories, I insert number of people present to db in this pattern:
 "2023-03-05 08:30:00","99","88","23","0","0ffd139d-5b4e-4fcd-a8b6-3cfef862ad62"
 ```
 
-## TableViewer
-It's simply PoolTracker 'UI' table pushed to web. Allows all ips to see it. Use with caution. 
-
+## PoolTrackerWeb
 For complete web UI, head to [PoolTrackerWeb](https://github.com/avrland/PoolTrackerWeb) part of PoolTracker project. 
 
-1. Go to TableViewer folder.
-2. Insert mysql creditials to config_example.php and rename it to config.php.
-3. Build docker image
-```
-docker build -t tableviewer .
-```
-4. Run docker container
-```
-docker container run -d -p 80:80 tableviewer
-```
