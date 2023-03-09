@@ -70,7 +70,7 @@ docker container run -d pooltracker
     }
 ]
 ```
-There are 5 categories, I insert number of people present to db in this pattern:
+There are 4 categories, I insert number of people present to db in this pattern:
 
 - "Pływalnia Sportowa" to sport column
 - "Pływalnia Rodzinna" to family column
