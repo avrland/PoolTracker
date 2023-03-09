@@ -75,7 +75,9 @@ There are 5 categories, I insert number of people present to db in this pattern:
 ```
 
 ## TableViewer
-It's simply poolStat table pushed to web. Allows all ips to see it. Use with caution.
+It's simply PoolTracker 'UI' table pushed to web. Allows all ips to see it. Use with caution. 
+
+For complete web UI, head to [PoolTrackerWeb](https://github.com/avrland/PoolTrackerWeb) part of PoolTracker project. 
 
 1. Go to TableViewer folder.
 2. Insert mysql creditials to config_example.php and rename it to config.php.
