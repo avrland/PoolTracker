@@ -8,7 +8,14 @@ def insert_stats(date, people_sport, people_family, people_small, people_ice):
         config = json.load(f)
 
     # Connect to the database
-    mydb = mysql.connector.connect(**config)
+    try:
+        # Connect to the database
+        mydb = mysql.connector.connect(**config)
+
+    except mysql.connector.Error as error:
+        # Handle the error
+        print("Error connecting to the database: {}".format(error))
+
 
     # Create a cursor object
     mycursor = mydb.cursor()
@@ -22,14 +29,17 @@ def insert_stats(date, people_sport, people_family, people_small, people_ice):
     sql = "INSERT INTO poolStats (guid, date, sport, family, small, ice) VALUES (%s, %s, %s, %s, %s, %s)"
     values = (guid, date_str, people_sport, people_family, people_small, people_ice)
 
-    # Execute the query
-    mycursor.execute(sql, values)
-
-    # Commit the changes
-    mydb.commit()
-
-    # Close the database connection
-    mydb.close()
+    try:
+        # Execute the query
+        mycursor.execute(sql, values)
+        # Commit the changes
+        mydb.commit()     
+    except mysql.connector.Error as error:
+        # Handle the error
+        print("Error inserting data into the database: {}".format(error))
+    finally:
+        # Close the database connection
+        mydb.close()
 
 if __name__ == "__main__":
     date = datetime(2023, 3, 4, 10, 30, 0)

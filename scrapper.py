@@ -6,8 +6,12 @@ import schedule
 import time
 
 def single_api_request():
-    response = requests.get('https://miejskoaktywni.pl/api/activities_table_items')
-    json_data = json.loads(response.text)
+    try:
+        response = requests.get('https://miejskoaktywni.pl/api/activities_table_items')
+        json_data = json.loads(response.text)
+    except requests.exceptions.ConnectionError:
+        print("Error connecting to the API")
+        return None
     single_scrap = {}
     for x in json_data:
         title = x.get('title', None)
