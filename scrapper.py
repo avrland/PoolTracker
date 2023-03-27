@@ -32,7 +32,7 @@ def single_api_request():
 
 def push_to_db():
     current_time = datetime.now()
-    one_hour = timedelta(hours=1)
+    one_hour = timedelta(hours=2)
     new_time = current_time + one_hour
     single_scrap_content = single_api_request()
     print(str(current_time), str(single_scrap_content))
