@@ -15,6 +15,7 @@ def insert_stats(date, people_sport, people_family, people_small, people_ice):
     except mysql.connector.Error as error:
         # Handle the error
         print("Error connecting to the database: {}".format(error))
+        return
 
 
     # Create a cursor object
