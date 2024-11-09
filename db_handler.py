@@ -4,7 +4,6 @@ import json
 import uuid
 import pandas as pd 
 import pytz
-import matplotlib.pyplot as plt
 
 def insert_stats(date, people_sport, people_family, people_small, people_ice):
     # Load the database login details from the config file
