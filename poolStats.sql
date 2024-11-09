@@ -1,11 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
---
--- Czas generowania: 05 Mar 2023, 08:26
--- Wersja serwera: 10.3.29-MariaDB-0ubuntu0.20.04.1-log
--- Wersja PHP: 7.4.3-4ubuntu2.18
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -49,3 +41,14 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE poolStats_history (
+    guid CHAR(36) NOT NULL PRIMARY KEY DEFAULT (UUID()), -- Generates a unique identifier for each entry
+    weekday VARCHAR(10),        -- Day of the week (e.g., "Monday", "Tuesday")
+    time TIME,                  -- Time in HH:MM:SS format
+    sport INT,                  -- Sport column (integer value)
+    family INT,                 -- Family column (integer value)
+    small INT,                  -- Small column (integer value)
+    ice INT,                     -- Ice column (integer value)
+    update_datetime DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- Track last update timestamp
+);

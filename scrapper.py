@@ -1,6 +1,6 @@
 import requests
 import json
-from db_handler import insert_stats
+from db_handler import insert_stats, update_history
 from datetime import datetime, timedelta
 import schedule
 import time
@@ -46,6 +46,7 @@ schedule.every().hour.at(":00").do(push_to_db)
 schedule.every().hour.at(":15").do(push_to_db)
 schedule.every().hour.at(":30").do(push_to_db)
 schedule.every().hour.at(":45").do(push_to_db)
+schedule.every().day.at("00:00").do(update_history)
 
 print("Scheduler started.")
 while True:
