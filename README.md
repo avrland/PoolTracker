@@ -1,5 +1,5 @@
 # PoolTracker
-Pool occupancy stats scrapper. This script puts the number of people present at the pool with datetime to database. Data is fetched every 15 minutes. Datetime is covering DST changes, region is fixed to Europe/Warsaw. 
+Pool occupancy stats scrapper. This script puts the number of people present at the pool with datetime to database. Data is fetched every 15 minutes. Datetime is covering DST changes, region is fixed to Europe/Warsaw. Once per day script calculates mean stats and updates results in poolStats_history table. 
 
 1. Clone repo.
 ```
