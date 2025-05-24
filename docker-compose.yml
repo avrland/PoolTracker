@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  scrapper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: scrapper
+    working_dir: /app
+    command: ["python", "scrapper.py"]
+    volumes:
+      - .:/app
+    restart: always
