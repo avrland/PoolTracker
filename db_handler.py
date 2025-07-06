@@ -58,7 +58,7 @@ def get_pools_data():
         query = """
             SELECT * 
             FROM poolStats 
-            WHERE date >= CURDATE() - INTERVAL 60 DAY
+            WHERE date >= CURDATE() - INTERVAL 30 DAY
             ORDER BY date ASC
         """
         
